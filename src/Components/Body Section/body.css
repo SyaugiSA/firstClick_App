@@ -1,0 +1,77 @@
+.mainContent {
+  width: 82%;
+  height: 100%;
+  padding: 3rem;
+  overflow: auto;
+  background-color: #f1f1f1;
+}
+.mainContent .bottom {
+  margin-top: 2rem;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.cardSection {
+  gap: 1rem;
+}
+.cardSection .rightCard {
+  position: relative;
+  flex-basis: 70%;
+  height: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.cardSection .rightCard .videoDiv {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.cardSection .rightCard .videoDiv video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cardSection .rightCard h1,
+.cardSection .rightCard p,
+.cardSection .rightCard .btn {
+  z-index: 100;
+}
+.cardSection .rightCard h1 {
+  padding-bottom: 2rem;
+  font-size: var(--h1FontSize);
+  color: var(--whiteColor);
+  font-weight: 800;
+}
+.cardSection .rightCard p {
+  padding: 2rem;
+  color: var(--HoverColor);
+  font-weight: 500;
+}
+.cardSection .rightCard .buttons {
+  gap: 1rem;
+}
+.cardSection .rightCard .buttons .btn {
+  box-shadow: none;
+  padding: 0.8rem 4rem;
+  color: var(--whiteColor);
+  border-radius: 2px solid transparent;
+}
+.cardSection .rightCard .buttons .transparent {
+  background: none;
+  border: 1px solid var(--whiteColor);
+  color: var(--whiteColor);
+}
+.cardSection .rightCard .buttons .transparent:hover {
+  background: var(--whiteColor);
+  color: var(--HoverColor);
+}/*# sourceMappingURL=body.css.map */

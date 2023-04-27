@@ -1,0 +1,57 @@
+:root {
+  --PrimaryColor: #040c1f;
+  --HoverColor: #001c5e;
+  --whiteColor: #ffffff;
+  --blackColor: #353535;
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: hsl(330, 12%, 97%);
+  /* Fonts and Typography */
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+}
+
+.topSection {
+  margin-bottom: 3rem;
+  border-color: var(--greyText);
+  border-bottom-style: solid;
+  border-width: 0.5px;
+  padding-bottom: 3rem;
+}
+.topSection .headerSection {
+  justify-content: space-between;
+}
+.topSection .headerSection .title h1 {
+  font-size: var(--h1FontSize);
+  color: var(--blackColor);
+  font-weight: 700;
+}
+.topSection .headerSection .title p {
+  font-size: var(--normalFontSize);
+  color: var(--textColor);
+  font-weight: 500;
+}
+.topSection .headerSection .searchBar {
+  padding: 1rem 2rem;
+  background: var(--whiteColor);
+  border-radius: 32px;
+  border-color: #001c5e;
+  gap: 1rem;
+}
+.topSection .headerSection .searchBar input {
+  border: none;
+  outline: none;
+  background: none;
+}
+.topSection .headerSection .searchBar .icon {
+  color: var(--textColor);
+}
+.topSection .headerSection .searchBar .icon:hover {
+  color: var(--PrimaryColor);
+}/*# sourceMappingURL=top.css.map */

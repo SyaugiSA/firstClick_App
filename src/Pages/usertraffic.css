@@ -1,0 +1,18 @@
+:root {
+  --PrimaryColor: #040c1f;
+  --HoverColor: #001c5e;
+  --whiteColor: #ffffff;
+  --blackColor: #353535;
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: hsl(330, 12%, 97%);
+  /* Fonts and Typography */
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+}/*# sourceMappingURL=usertraffic.css.map */
