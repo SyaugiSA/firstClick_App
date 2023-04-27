@@ -88,7 +88,7 @@ const Usertraffic = () => {
             <Stack direction="row" spacing={59.2}>
                 <ThemeProvider theme={theme}>
                     <Button color="primary" variant="contained" size="large" startIcon={<BiLoaderCircle />}>
-                        UPDAT
+                        UPDATE
                     </Button>
                 </ThemeProvider>
                 <Stack direction="row" spacing={3}>
