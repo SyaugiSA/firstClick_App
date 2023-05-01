@@ -67,15 +67,7 @@ const theme = createTheme({
 
 const Usertraffic = () => {
   const [data, setData] = useState([]);
-  const [ascending, setAscending] = useState([]);
-
-  const descending = (arr) => {
-    let temp = [];
-    arr.map((e) => temp.unshift(e));
-    console.log(temp);
-
-    return temp;
-  };
+  const [asc, setAsc] = useState(true);
 
   const fetchData = () => {
     return axios
@@ -83,7 +75,6 @@ const Usertraffic = () => {
       .then((res) => {
         console.log(res.data.data);
         setData(res.data.data);
-        setAscending(res.data.data);
       })
       .catch((err) => console.log(err));
   };
@@ -105,58 +96,59 @@ const Usertraffic = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row) => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row">
-                  {row.username}
-                </StyledTableCell>
-                <StyledTableCell align="center">{row.time}</StyledTableCell>
-                <StyledTableCell align="center">{row.button}</StyledTableCell>
-                <StyledTableCell align="center">{row.pathName}</StyledTableCell>
-              </StyledTableRow>
-            ))}
+            {data
+              .sort((a, b) => (asc ? a.time - b.time : b.time - a.time))
+              .map((row) => (
+                <StyledTableRow key={row.name}>
+                  <StyledTableCell component="th" scope="row">
+                    {row.username}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">{row.time}</StyledTableCell>
+                  <StyledTableCell align="center">{row.button}</StyledTableCell>
+                  <StyledTableCell align="center">
+                    {row.pathName}
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>
       <br />
       <br />
-      <Stack direction="row" spacing={59.2}>
+      <Stack direction="row" spacing={72}>
         <ThemeProvider theme={theme}>
-          <div onClick={() => fetchData()}>
+          <Button
+            onClick={() => fetchData()}
+            color="primary"
+            variant="contained"
+            size="large"
+            startIcon={<BiLoaderCircle />}
+          >
+            UPDATE
+          </Button>
+        </ThemeProvider>
+        <Stack direction="row" spacing={3}>
+          <ThemeProvider theme={theme}>
             <Button
               color="primary"
               variant="contained"
               size="large"
-              startIcon={<BiLoaderCircle />}
+              startIcon={<ImSortNumericAsc />}
+              onClick={() => setAsc(true)}
             >
-              UPDATE
+              ASCENDING
             </Button>
-          </div>
-        </ThemeProvider>
-        <Stack direction="row" spacing={3}>
-          <ThemeProvider theme={theme}>
-            <div onClick={() => setData(ascending)}>
-              <Button
-                color="primary"
-                variant="contained"
-                size="large"
-                startIcon={<ImSortNumericAsc />}
-              >
-                ASCENDING
-              </Button>
-            </div>
           </ThemeProvider>
           <ThemeProvider theme={theme}>
-            <div onClick={() => setData(descending(ascending))}>
-              <Button
-                color="primary"
-                variant="outlined"
-                size="large"
-                startIcon={<ImSortNumbericDesc />}
-              >
-                DESCENDING
-              </Button>
-            </div>
+            <Button
+              onClick={() => setAsc(false)}
+              color="primary"
+              variant="outlined"
+              size="large"
+              startIcon={<ImSortNumbericDesc />}
+            >
+              DESCENDING
+            </Button>
           </ThemeProvider>
         </Stack>
       </Stack>
