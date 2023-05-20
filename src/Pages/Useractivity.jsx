@@ -84,7 +84,7 @@ const Useractivity = () => {
           </TableHead>
           <TableBody>
             {data
-              .sort((a, b) => (asc ? a.time - b.time : b.time - a.time))
+              .sort((a, b) => (asc ? a.average - b.average : b.average - a.average))
               .map((row) => (
                 <StyledTableRow>
                   <StyledTableCell component="th" scope="row">
