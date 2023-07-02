@@ -17,6 +17,7 @@ import Stack from "@mui/material/Stack";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import Top from "../Components/Body Section/Top Section/Top";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -68,6 +69,7 @@ const theme = createTheme({
 const Usertraffic = () => {
   const [data, setData] = useState([]);
   const [asc, setAsc] = useState(true);
+  const [search, setSearch] = useState("");
 
   const fetchData = () => {
     return axios
@@ -85,6 +87,7 @@ const Usertraffic = () => {
 
   return (
     <Container>
+      <Top setSearch={setSearch} />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
@@ -97,6 +100,11 @@ const Usertraffic = () => {
           </TableHead>
           <TableBody>
             {data
+              .filter((val) =>
+                val.username
+                  .toLocaleLowerCase()
+                  .includes(search.toLocaleLowerCase())
+              )
               .sort((a, b) => (asc ? a.time - b.time : b.time - a.time))
               .map((row) => (
                 <StyledTableRow key={row.name}>
